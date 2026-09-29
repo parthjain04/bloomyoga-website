@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bloom Yoga | Yoga &amp; Yoga Therapy in Dubai with Shipra</title>
+<meta name="description" content="Bloom Yoga, Dubai. Yoga with Shipra. Hatha, Ashtanga, Vinyasa, Pranayama, Meditation and yoga therapy. Private sessions in JBR, hotel classes and corporate groups.">
+
+<link rel="canonical" href="https://bloomdubai.yoga/">
+
+<!-- link preview, used when the URL is shared on WhatsApp, LinkedIn or email -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Bloom Yoga">
+<meta property="og:title" content="Bloom Yoga | Yoga &amp; Yoga Therapy in Dubai">
+<meta property="og:description" content="Hatha, Ashtanga, Vinyasa, Pranayama, Meditation and yoga therapy with Shipra. Private sessions in JBR, hotel classes and corporate groups.">
+<meta property="og:url" content="https://bloomdubai.yoga/">
+<meta property="og:image" content="https://bloomdubai.yoga/images/group-tree.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22><circle cx=%2212%22 cy=%2212%22 r=%2212%22 fill=%22%23A67C2E%22/><g fill=%22none%22 stroke=%22%2312100D%22 stroke-width=%22.9%22><circle cx=%2212%22 cy=%2212%22 r=%222.4%22/><path d=%22M12 9.6C12 6 10.4 3.4 12 2c1.6 1.4 0 4 0 7.6Z%22/><path d=%22M14.4 12c3.6 0 6.2-1.6 7.6 0-1.4 1.6-4 0-7.6 0Z%22/><path d=%22M12 14.4c0 3.6 1.6 6.2 0 7.6-1.6-1.4 0-4 0-7.6Z%22/><path d=%22M9.6 12C6 12 3.4 13.6 2 12c1.4-1.6 4 0 7.6 0Z%22/></g></svg>">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   TOKENS
+   ============================================================ */
+:root{
+  --bone:#EFEDE7;
+  --bone-deep:#E5E2D9;
+  --ink:#12100D;
+  --ink-soft:#4A463D;
+  --gold:#A67C2E;
+  --gold-deep:#6E4E17;
+  --gold-pale:#E4C888;
+  --stone:#D8D4CA;
+
+  /* green accent, secondary to the gold */
+  --sage:#566050;
+  --sage-deep:#3E4736;
+  --sage-light:#94A189;
+  --ink-green:#10130E;
+
+  --display:"Fraunces",Georgia,serif;
+  --body:"Instrument Sans",system-ui,sans-serif;
+
+  --gutter:clamp(20px,5vw,84px);
+  --section-y:clamp(64px,7.5vw,122px);
+  --max:1360px;
+}
+
+*,*::before,*::after{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;}
+body{
+  margin:0;
+  background:var(--bone);
+  color:var(--ink);
+  font-family:var(--body);
+  font-size:clamp(15px,1.05vw,17px);
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block;}
+a{color:inherit;}
+::selection{background:var(--sage-light);color:var(--ink);}
+:focus-visible{outline:2px solid var(--sage-deep);outline-offset:3px;}
+
+.wrap{max-width:var(--max);margin:0 auto;padding-inline:var(--gutter);}
+
+/* ============================================================
+   ATMOSPHERE — fixed behind everything, drifts with scroll + cursor
+   ============================================================ */
+.atmosphere{
+  position:fixed;inset:0;z-index:0;
+  pointer-events:none;overflow:hidden;
+}
+.bloom{position:absolute;will-change:transform;}
+.bloom-core{
+  width:100%;height:100%;border-radius:50%;
+  filter:blur(72px);
+  animation:breathe 11s ease-in-out infinite;
+}
+/* Four counts in, seven counts out — the ratio of an extended exhale. */
+@keyframes breathe{
+  0%   {transform:scale(1);opacity:.88;}
+  36%  {transform:scale(1.12);opacity:1;}
+  100% {transform:scale(1);opacity:.88;}
+}
+.bloom-a{
+  width:60vw;height:60vw;max-width:860px;max-height:860px;
+  top:-20%;right:-12%;
+}
+.bloom-a .bloom-core{
+  background:radial-gradient(circle,rgba(228,200,136,.95) 0%,rgba(200,163,88,.44) 45%,rgba(239,237,231,0) 72%);
+}
+.bloom-b{
+  width:48vw;height:48vw;max-width:680px;max-height:680px;
+  top:58%;left:-8%;
+}
+.bloom-b .bloom-core{
+  background:radial-gradient(circle,rgba(70,80,62,.44) 0%,rgba(116,127,106,.24) 48%,rgba(239,237,231,0) 74%);
+  animation-direction:reverse;
+  animation-duration:13s;
+}
+.bloom-c{
+  width:52vw;height:52vw;max-width:720px;max-height:720px;
+  top:150%;right:2%;
+}
+.bloom-c .bloom-core{
+  background:radial-gradient(circle,rgba(228,200,136,.62) 0%,rgba(166,124,46,.22) 48%,rgba(239,237,231,0) 74%);
+  animation-duration:15s;
+}
+
+/* ============================================================
+   SMOOTH SCROLL SHELL
+   ============================================================ */
+#smooth-content{position:relative;z-index:1;}
+body.is-smooth #smooth-content{
+  position:fixed;top:0;left:0;width:100%;
+  will-change:transform;
+}
+
+/* Display type ------------------------------------------------ */
+.display{
+  font-family:var(--display);
+  font-optical-sizing:auto;
+  font-variation-settings:"opsz" 144,"SOFT" 0,"WONK" 0;
+  font-weight:400;
+  line-height:.86;
+  letter-spacing:-.015em;
+  margin:0;
+}
+.eyebrow{
+  font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;
+  font-weight:500;color:var(--sage-deep);margin:0 0 1.4em;
+}
+.lede{font-size:clamp(1.02rem,1.35vw,1.24rem);line-height:1.6;}
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+.site-header{
+  position:fixed;inset:0 0 auto 0;z-index:100;
+  transition:background .45s ease,border-color .45s ease,backdrop-filter .45s ease;
+  border-bottom:1px solid transparent;
+}
+.site-header.is-stuck{
+  background:rgba(239,237,231,.82);
+  backdrop-filter:blur(14px);
+  border-bottom-color:var(--stone);
+}
+.header-inner{
+  max-width:var(--max);margin:0 auto;padding:18px var(--gutter);
+  display:flex;align-items:center;justify-content:space-between;gap:24px;
+}
+.mark{display:flex;align-items:center;gap:12px;text-decoration:none;}
+.mark-seal{
+  width:44px;height:44px;border-radius:50%;
+  background:linear-gradient(145deg,var(--gold-pale) 0%,var(--gold) 52%,var(--sage) 100%);
+  display:grid;place-items:center;flex:none;
+}
+.mark-seal svg{width:24px;height:24px;}
+.mark-name{font-family:var(--display);font-variation-settings:"opsz" 24;font-size:1.06rem;letter-spacing:.02em;}
+
+.nav{display:flex;align-items:center;gap:clamp(18px,2.2vw,34px);}
+.nav a{text-decoration:none;font-size:.85rem;font-weight:500;letter-spacing:.03em;position:relative;padding:4px 0;}
+.nav a::after{
+  content:"";position:absolute;left:0;bottom:0;height:1px;width:100%;
+  background:var(--sage);transform:scaleX(0);transform-origin:right;
+  transition:transform .38s cubic-bezier(.2,.7,.3,1);
+}
+.nav a:hover::after,.nav a:focus-visible::after{transform:scaleX(1);transform-origin:left;}
+
+.enquire{
+  border:1px solid var(--sage-deep);border-radius:999px;
+  padding:11px 22px;font-size:.82rem;font-weight:500;
+  text-decoration:none;white-space:nowrap;
+  transition:background .3s ease,color .3s ease;
+}
+.enquire:hover{background:var(--sage-deep);color:var(--bone);border-color:var(--sage-deep);}
+
+.burger{display:none;background:none;border:0;padding:10px;cursor:pointer;}
+.burger span{display:block;width:26px;height:1.5px;background:var(--ink);transition:transform .35s ease,opacity .25s ease;}
+.burger span+span{margin-top:7px;}
+.burger[aria-expanded="true"] span:first-child{transform:translateY(8.5px) rotate(45deg);}
+.burger[aria-expanded="true"] span:nth-child(2){opacity:0;}
+.burger[aria-expanded="true"] span:last-child{transform:translateY(-8.5px) rotate(-45deg);}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero{
+  position:relative;min-height:100svh;
+  display:flex;flex-direction:column;justify-content:center;
+  padding:140px 0 60px;
+}
+.hero-inner{position:relative;z-index:1;width:100%;}
+.hero h1{font-size:clamp(3.3rem,11.2vw,10rem);text-transform:uppercase;}
+.hero h1 .l2{display:block;margin-left:clamp(0px,9vw,150px);}
+.hero h1 .l3{display:block;margin-left:clamp(0px,4vw,70px);}
+.byline{
+  display:inline-flex;align-items:baseline;gap:.55em;
+  font-family:var(--body);font-size:clamp(.95rem,1.5vw,1.35rem);
+  text-transform:none;letter-spacing:0;margin-left:.7em;
+}
+.byline b{font-weight:400;border-bottom:1.5px solid var(--gold);padding-bottom:2px;}
+.hero-sub{
+  max-width:46ch;margin:clamp(30px,4vw,48px) 0 0;
+  margin-left:clamp(0px,4vw,70px);color:var(--ink-soft);
+}
+.scroll-cue{
+  position:relative;z-index:1;margin-top:clamp(44px,6vw,80px);
+  display:inline-flex;align-items:center;gap:14px;
+  text-decoration:none;font-size:.72rem;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--ink-soft);
+}
+.scroll-cue svg{width:14px;height:34px;overflow:visible;}
+.scroll-cue line,.scroll-cue polyline{stroke:var(--sage-deep);stroke-width:1.2;fill:none;}
+.scroll-cue g{animation:drift 3.4s ease-in-out infinite;}
+@keyframes drift{
+  0%,100%{transform:translateY(0);opacity:.55;}
+  50%{transform:translateY(7px);opacity:1;}
+}
+
+/* ============================================================
+   SECTION SHELL — soft edges, no hard cuts between bands
+   ============================================================ */
+.band{padding-block:var(--section-y);position:relative;}
+.band-tint{
+  background:linear-gradient(180deg,
+    rgba(226,228,215,0) 0%,
+    rgba(226,228,215,.78) 14%,
+    rgba(226,228,215,.78) 86%,
+    rgba(226,228,215,0) 100%);
+}
+.band-dark{
+  color:var(--bone);
+  background:var(--ink-green);
+  padding-block:calc(var(--section-y) * 1.2);
+}
+.band-dark .eyebrow{color:var(--gold-pale);}
+
+/* ============================================================
+   ABOUT
+   ============================================================ */
+.about-head{font-size:clamp(3.2rem,11vw,9.5rem);text-transform:uppercase;margin-bottom:clamp(20px,2.6vw,38px);}
+.about-grid{
+  display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1fr);
+  gap:clamp(24px,5vw,80px);align-items:start;
+}
+.portrait-frame{overflow:hidden;}
+.portrait{
+  aspect-ratio:4/5;width:100%;
+  background:
+    radial-gradient(120% 90% at 30% 20%,rgba(228,200,136,.55),transparent 60%),
+    linear-gradient(160deg,var(--bone-deep),var(--stone));
+  display:grid;place-items:center;
+  color:var(--gold-deep);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;
+  will-change:transform;
+}
+.about-body p{margin:0 0 1.3em;}
+.about-body p:last-child{margin-bottom:0;}
+.about-body .first{
+  font-size:clamp(1.15rem,2vw,1.55rem);line-height:1.45;
+  font-family:var(--display);font-variation-settings:"opsz" 40;font-weight:300;
+  color:var(--sage-deep);
+}
+
+.creds{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--stone);margin-top:clamp(34px,4vw,56px);}
+.cred{padding:clamp(18px,2.2vw,30px) 0;border-right:1px solid var(--stone);padding-right:20px;}
+.cred:last-child{border-right:0;}
+.cred dt{font-family:var(--display);font-variation-settings:"opsz" 72;font-size:clamp(1.9rem,4.2vw,3.1rem);line-height:1;}
+.cred dd{margin:.7em 0 0;font-size:.8rem;letter-spacing:.06em;color:var(--sage-deep);}
+
+/* ============================================================
+   PRACTICE
+   ============================================================ */
+.practice{border-top:1px solid var(--stone);}
+.practice-row{
+  display:grid;grid-template-columns:auto minmax(0,1fr);
+  gap:clamp(20px,5vw,72px);align-items:baseline;
+  padding:clamp(26px,3.4vw,44px) 0;
+  border-bottom:1px solid var(--stone);
+  transition:padding-left .45s cubic-bezier(.2,.7,.3,1);
+}
+.practice-row:hover{padding-left:clamp(8px,1.6vw,24px);}
+.practice-row h3{
+  font-family:var(--display);font-variation-settings:"opsz" 72;
+  font-weight:400;font-size:clamp(1.6rem,3.4vw,2.5rem);
+  margin:0;min-width:clamp(150px,20vw,300px);line-height:1.05;
+  transition:color .35s ease;
+}
+.practice-row:hover h3{color:var(--sage-deep);}
+.practice-row p{margin:0;color:var(--ink-soft);max-width:56ch;}
+
+/* ============================================================
+   THERAPY
+   ============================================================ */
+.therapy-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,6vw,90px);align-items:center;}
+.therapy-grid h2{font-size:clamp(2.4rem,6vw,4.6rem);text-transform:uppercase;}
+.therapy-grid p{color:rgba(239,237,231,.76);}
+.therapy-list{list-style:none;margin:clamp(26px,3vw,40px) 0 0;padding:0;}
+.therapy-list li{padding:16px 0 16px 30px;position:relative;border-top:1px solid rgba(216,212,202,.2);font-size:.95rem;}
+.therapy-list li::before{content:"";position:absolute;left:0;top:24px;width:12px;height:1px;background:var(--sage-light);}
+.therapy-note{margin-top:2em;font-size:.85rem;color:rgba(239,237,231,.6);}
+
+/* ============================================================
+   SESSIONS
+   ============================================================ */
+.sessions{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(24px,3.4vw,52px);margin-top:clamp(36px,5vw,64px);}
+.session{border-top:2px solid var(--sage-deep);padding-top:26px;display:flex;flex-direction:column;}
+.session h3{font-family:var(--display);font-variation-settings:"opsz" 48;font-weight:400;font-size:clamp(1.3rem,2.3vw,1.75rem);margin:0 0 .6em;line-height:1.15;}
+.session p{margin:0 0 1.5em;color:var(--ink-soft);font-size:.95rem;}
+.session .detail{margin-top:auto;font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;color:var(--sage-deep);}
+.sessions-head{font-size:clamp(2.2rem,5.5vw,4.2rem);text-transform:uppercase;}
+
+/* ============================================================
+   QUOTE
+   ============================================================ */
+.quote-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.95fr);gap:clamp(28px,5vw,72px);align-items:center;}
+.quote blockquote{
+  margin:0;font-family:var(--display);font-variation-settings:"opsz" 100;
+  font-weight:300;font-size:clamp(1.6rem,4vw,3rem);line-height:1.18;max-width:20ch;
+}
+.quote-rest{margin:1.4em 0 0;color:var(--ink-soft);max-width:44ch;font-size:.95rem;}
+.quote cite{display:block;margin-top:1.4em;font-style:normal;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--sage-deep);}
+.quote-aside{color:var(--ink-soft);max-width:38ch;}
+
+/* ============================================================
+   CONTACT
+   ============================================================ */
+.contact-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:clamp(36px,6vw,96px);align-items:start;}
+.contact-grid h2{font-size:clamp(2.6rem,7vw,5.4rem);text-transform:uppercase;}
+.contact-lede{margin-top:1.5em;color:var(--ink-soft);max-width:36ch;}
+.direct{margin-top:clamp(28px,4vw,44px);}
+.direct a{display:block;text-decoration:none;padding:14px 0;border-top:1px solid var(--stone);font-size:clamp(1rem,1.6vw,1.15rem);transition:color .3s ease;}
+.direct a:hover{color:var(--sage-deep);}
+.direct span{display:block;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:4px;}
+
+.field{margin-bottom:22px;}
+.field label{display:block;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:8px;}
+.field input,.field select,.field textarea{
+  width:100%;background:transparent;border:0;border-bottom:1px solid var(--stone);
+  padding:10px 0;font:inherit;color:var(--ink);border-radius:0;transition:border-color .3s ease;
+}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-bottom-color:var(--sage);}
+.field textarea{resize:vertical;min-height:96px;}
+.submit{
+  margin-top:10px;background:var(--sage-deep);color:var(--bone);border:0;border-radius:999px;
+  padding:15px 34px;font:inherit;font-size:.86rem;letter-spacing:.04em;cursor:pointer;transition:background .3s ease;
+}
+.submit:hover{background:var(--ink-green);}
+.form-note{margin-top:14px;font-size:.78rem;color:var(--ink-soft);min-height:1.2em;}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.site-footer{
+  border-top:1px solid var(--stone);padding:clamp(30px,4vw,44px) 0;
+  display:flex;flex-wrap:wrap;gap:18px 32px;align-items:center;justify-content:space-between;
+  font-size:.78rem;color:var(--ink-soft);
+}
+.site-footer a{text-decoration:none;}
+.site-footer a:hover{color:var(--sage-deep);}
+.social{display:flex;gap:24px;}
+
+
+/* ---- photography: matted frames, never full bleed ---- */
+.frame{
+  background:var(--bone-deep);
+  padding:clamp(9px,1vw,15px);
+  border:1px solid rgba(166,124,46,.42);
+  margin:0;
+}
+.frame--dark{background:#161A14;border-color:rgba(228,200,136,.32);}
+.frame-media{position:relative;}
+.frame-media img,.frame-media svg{display:block;width:100%;height:auto;}
+.dots-base{fill:rgba(86,96,80,.58);}
+.dots-gold{fill:var(--gold);}
+
+/* stats stacked beside the map */
+.creds--stack{display:block;border-top:1px solid var(--stone);margin-top:0;}
+.creds--stack .cred{border-right:0;border-bottom:1px solid var(--stone);padding-right:0;}
+.creds--stack .cred:last-child{border-bottom:0;}
+
+/* small photos tucked under the map, inside its column */
+.trio{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:clamp(7px,.8vw,13px);
+  margin-top:clamp(9px,1vw,15px);
+}
+.trio .frame{padding:clamp(4px,.45vw,7px);}
+.figrow--top{align-items:start;}
+.frame figcaption{
+  margin-top:clamp(9px,1vw,14px);
+  font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--sage-deep);
+}
+.frame--dark figcaption{color:var(--sage-light);opacity:.85;}
+
+
+/* image + text rows */
+.figrow{
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  gap:clamp(28px,5vw,76px);align-items:center;
+}
+.figrow--flip .frame{order:2;}
+.figrow p{color:var(--ink-soft);}
+.band-dark .figrow p{color:rgba(239,237,231,.76);}
+
+/* ============================================================
+   REVEAL — per element, staggered, short travel
+   ============================================================ */
+.reveal{
+  opacity:0;transform:translateY(16px);
+  transition:opacity 1s cubic-bezier(.22,.68,.28,1),transform 1.1s cubic-bezier(.22,.68,.28,1);
+  transition-delay:var(--d,0ms);
+}
+.reveal.is-in{opacity:1;transform:none;}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width:940px){
+  .about-grid,.therapy-grid,.quote-grid,.contact-grid{grid-template-columns:1fr;}
+  .sessions{grid-template-columns:1fr;}
+  .session{padding-top:20px;}
+  .quote blockquote{max-width:none;}
+  .figrow{grid-template-columns:1fr;}
+
+  .figrow--flip .frame{order:0;}
+}
+@media (max-width:760px){
+  .burger{display:block;}
+  .nav{
+    position:fixed;inset:0;background:var(--bone);
+    flex-direction:column;justify-content:center;align-items:flex-start;
+    gap:6px;padding:0 var(--gutter);
+    transform:translateY(-100%);transition:transform .5s cubic-bezier(.3,.8,.3,1);z-index:98;
+  }
+  .nav.is-open{transform:none;}
+  .nav a{font-family:var(--display);font-variation-settings:"opsz" 72;font-size:2rem;font-weight:400;padding:10px 0;}
+  .nav a::after{display:none;}
+  .header-actions{display:flex;align-items:center;gap:8px;z-index:99;}
+  .enquire{display:none;}
+  .creds{grid-template-columns:1fr;}
+  .cred{border-right:0;border-bottom:1px solid var(--stone);}
+  .cred:last-child{border-bottom:0;}
+  .practice-row{grid-template-columns:1fr;gap:12px;}
+  .hero h1 .l2,.hero h1 .l3{margin-left:0;}
+  .hero-sub{margin-left:0;}
+  .byline{display:flex;margin-left:0;margin-top:.5em;}
+}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition-duration:.01ms!important;}
+  .reveal{opacity:1;transform:none;}
+}
+</style>
+</head>
+<body>
+
+<!-- Ambient gold layer: fixed behind the page, drifts with scroll and cursor -->
+<div class="atmosphere" id="atmosphere" aria-hidden="true">
+  <div class="bloom bloom-a" data-depth="46" data-scroll="-0.07"><div class="bloom-core"></div></div>
+  <div class="bloom bloom-b" data-depth="-30" data-scroll="-0.16"><div class="bloom-core"></div></div>
+  <div class="bloom bloom-c" data-depth="24" data-scroll="-0.34"><div class="bloom-core"></div></div>
+</div>
+
+<!-- ============================ HEADER ============================ -->
+<header class="site-header" id="header">
+  <div class="header-inner">
+    <a class="mark" href="#top">
+      <span class="mark-seal" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#12100D" stroke-width=".9">
+          <circle cx="12" cy="12" r="2.4"/>
+          <path d="M12 9.6C12 6 10.4 3.4 12 2c1.6 1.4 0 4 0 7.6Z"/>
+          <path d="M14.4 12c3.6 0 6.2-1.6 7.6 0-1.4 1.6-4 0-7.6 0Z"/>
+          <path d="M12 14.4c0 3.6 1.6 6.2 0 7.6-1.6-1.4 0-4 0-7.6Z"/>
+          <path d="M9.6 12C6 12 3.4 13.6 2 12c1.4-1.6 4 0 7.6 0Z"/>
+        </svg>
+      </span>
+      <span class="mark-name">Bloom Yoga</span>
+    </a>
+
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="#about">About</a>
+      <a href="#practice">Practice</a>
+      <a href="#therapy">Yoga therapy</a>
+      <a href="#sessions">Sessions</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="header-actions">
+      <a class="enquire" href="#contact">Book a session</a>
+      <button class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div id="smooth-content">
+<main id="top">
+
+<!-- ============================ HERO ============================ -->
+<section class="hero">
+  <div class="wrap hero-inner">
+    <h1 class="display">
+      Yoga<span class="l2">built around</span><span class="l3">you<span class="byline">with <b>Shipra</b></span></span>
+    </h1>
+    <p class="lede hero-sub">
+      Hatha, Ashtanga, Vinyasa, Pranayama, Meditation and yoga therapy in
+      Dubai. Private sessions, hotel classes and corporate groups, whether
+      you're starting out or working around something.
+    </p>
+    <a class="scroll-cue" href="#about">
+      About
+      <svg viewBox="0 0 14 34" aria-hidden="true">
+        <g><line x1="7" y1="2" x2="7" y2="26"/><polyline points="2,21 7,27 12,21"/></g>
+      </svg>
+    </a>
+  </div>
+</section>
+
+<!-- ============================ ABOUT ============================ -->
+<section class="band" id="about">
+  <div class="wrap">
+    <h2 class="display about-head reveal">About</h2>
+
+    <div class="figrow figrow--top" style="margin-top:clamp(24px,3vw,40px);">
+      <div>
+      <figure class="frame reveal">
+        <div class="frame-media">
+          <svg class="worldmap" viewBox="0 0 1000 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Map highlighting India, the United Arab Emirates, Australia and Canada">
+  <g class="dots-base"><circle cx="289.9" cy="414.0" r="3.9"/><circle cx="278.6" cy="402.3" r="3.9"/><circle cx="278.6" cy="390.5" r="3.9"/><circle cx="289.9" cy="390.5" r="3.9"/><circle cx="278.6" cy="378.8" r="3.9"/><circle cx="289.9" cy="378.8" r="3.9"/><circle cx="971.3" cy="378.8" r="3.9"/><circle cx="278.6" cy="367.0" r="3.9"/><circle cx="289.9" cy="367.0" r="3.9"/><circle cx="301.3" cy="367.0" r="3.9"/><circle cx="982.6" cy="367.0" r="3.9"/><circle cx="278.6" cy="355.3" r="3.9"/><circle cx="289.9" cy="355.3" r="3.9"/><circle cx="301.3" cy="355.3" r="3.9"/><circle cx="312.6" cy="355.3" r="3.9"/><circle cx="289.9" cy="343.6" r="3.9"/><circle cx="301.3" cy="343.6" r="3.9"/><circle cx="312.6" cy="343.6" r="3.9"/><circle cx="324.0" cy="343.6" r="3.9"/><circle cx="335.3" cy="343.6" r="3.9"/><circle cx="539.7" cy="343.6" r="3.9"/><circle cx="551.1" cy="343.6" r="3.9"/><circle cx="562.5" cy="343.6" r="3.9"/><circle cx="289.9" cy="331.8" r="3.9"/><circle cx="301.3" cy="331.8" r="3.9"/><circle cx="312.6" cy="331.8" r="3.9"/><circle cx="324.0" cy="331.8" r="3.9"/><circle cx="335.3" cy="331.8" r="3.9"/><circle cx="528.4" cy="331.8" r="3.9"/><circle cx="539.7" cy="331.8" r="3.9"/><circle cx="551.1" cy="331.8" r="3.9"/><circle cx="562.5" cy="331.8" r="3.9"/><circle cx="573.8" cy="331.8" r="3.9"/><circle cx="289.9" cy="320.1" r="3.9"/><circle cx="301.3" cy="320.1" r="3.9"/><circle cx="312.6" cy="320.1" r="3.9"/><circle cx="324.0" cy="320.1" r="3.9"/><circle cx="335.3" cy="320.1" r="3.9"/><circle cx="346.7" cy="320.1" r="3.9"/><circle cx="358.0" cy="320.1" r="3.9"/><circle cx="528.4" cy="320.1" r="3.9"/><circle cx="539.7" cy="320.1" r="3.9"/><circle cx="551.1" cy="320.1" r="3.9"/><circle cx="562.5" cy="320.1" r="3.9"/><circle cx="573.8" cy="320.1" r="3.9"/><circle cx="607.9" cy="320.1" r="3.9"/><circle cx="289.9" cy="308.3" r="3.9"/><circle cx="301.3" cy="308.3" r="3.9"/><circle cx="312.6" cy="308.3" r="3.9"/><circle cx="324.0" cy="308.3" r="3.9"/><circle cx="335.3" cy="308.3" r="3.9"/><circle cx="346.7" cy="308.3" r="3.9"/><circle cx="358.0" cy="308.3" r="3.9"/><circle cx="369.4" cy="308.3" r="3.9"/><circle cx="528.4" cy="308.3" r="3.9"/><circle cx="539.7" cy="308.3" r="3.9"/><circle cx="551.1" cy="308.3" r="3.9"/><circle cx="562.5" cy="308.3" r="3.9"/><circle cx="573.8" cy="308.3" r="3.9"/><circle cx="619.2" cy="308.3" r="3.9"/><circle cx="278.6" cy="296.6" r="3.9"/><circle cx="289.9" cy="296.6" r="3.9"/><circle cx="301.3" cy="296.6" r="3.9"/><circle cx="312.6" cy="296.6" r="3.9"/><circle cx="324.0" cy="296.6" r="3.9"/><circle cx="335.3" cy="296.6" r="3.9"/><circle cx="346.7" cy="296.6" r="3.9"/><circle cx="358.0" cy="296.6" r="3.9"/><circle cx="369.4" cy="296.6" r="3.9"/><circle cx="528.4" cy="296.6" r="3.9"/><circle cx="539.7" cy="296.6" r="3.9"/><circle cx="551.1" cy="296.6" r="3.9"/><circle cx="562.5" cy="296.6" r="3.9"/><circle cx="573.8" cy="296.6" r="3.9"/><circle cx="585.2" cy="296.6" r="3.9"/><circle cx="596.5" cy="296.6" r="3.9"/><circle cx="619.2" cy="296.6" r="3.9"/><circle cx="267.2" cy="284.8" r="3.9"/><circle cx="278.6" cy="284.8" r="3.9"/><circle cx="289.9" cy="284.8" r="3.9"/><circle cx="301.3" cy="284.8" r="3.9"/><circle cx="312.6" cy="284.8" r="3.9"/><circle cx="324.0" cy="284.8" r="3.9"/><circle cx="335.3" cy="284.8" r="3.9"/><circle cx="346.7" cy="284.8" r="3.9"/><circle cx="358.0" cy="284.8" r="3.9"/><circle cx="369.4" cy="284.8" r="3.9"/><circle cx="528.4" cy="284.8" r="3.9"/><circle cx="539.7" cy="284.8" r="3.9"/><circle cx="551.1" cy="284.8" r="3.9"/><circle cx="562.5" cy="284.8" r="3.9"/><circle cx="573.8" cy="284.8" r="3.9"/><circle cx="585.2" cy="284.8" r="3.9"/><circle cx="596.5" cy="284.8" r="3.9"/><circle cx="267.2" cy="273.1" r="3.9"/><circle cx="278.6" cy="273.1" r="3.9"/><circle cx="289.9" cy="273.1" r="3.9"/><circle cx="301.3" cy="273.1" r="3.9"/><circle cx="312.6" cy="273.1" r="3.9"/><circle cx="324.0" cy="273.1" r="3.9"/><circle cx="335.3" cy="273.1" r="3.9"/><circle cx="346.7" cy="273.1" r="3.9"/><circle cx="358.0" cy="273.1" r="3.9"/><circle cx="369.4" cy="273.1" r="3.9"/><circle cx="380.8" cy="273.1" r="3.9"/><circle cx="528.4" cy="273.1" r="3.9"/><circle cx="539.7" cy="273.1" r="3.9"/><circle cx="551.1" cy="273.1" r="3.9"/><circle cx="562.5" cy="273.1" r="3.9"/><circle cx="573.8" cy="273.1" r="3.9"/><circle cx="585.2" cy="273.1" r="3.9"/><circle cx="789.6" cy="273.1" r="3.9"/><circle cx="800.9" cy="273.1" r="3.9"/><circle cx="880.4" cy="273.1" r="3.9"/><circle cx="891.8" cy="273.1" r="3.9"/><circle cx="255.8" cy="261.4" r="3.9"/><circle cx="267.2" cy="261.4" r="3.9"/><circle cx="278.6" cy="261.4" r="3.9"/><circle cx="289.9" cy="261.4" r="3.9"/><circle cx="301.3" cy="261.4" r="3.9"/><circle cx="312.6" cy="261.4" r="3.9"/><circle cx="324.0" cy="261.4" r="3.9"/><circle cx="335.3" cy="261.4" r="3.9"/><circle cx="346.7" cy="261.4" r="3.9"/><circle cx="358.0" cy="261.4" r="3.9"/><circle cx="369.4" cy="261.4" r="3.9"/><circle cx="517.0" cy="261.4" r="3.9"/><circle cx="528.4" cy="261.4" r="3.9"/><circle cx="539.7" cy="261.4" r="3.9"/><circle cx="551.1" cy="261.4" r="3.9"/><circle cx="562.5" cy="261.4" r="3.9"/><circle cx="573.8" cy="261.4" r="3.9"/><circle cx="585.2" cy="261.4" r="3.9"/><circle cx="596.5" cy="261.4" r="3.9"/><circle cx="778.2" cy="261.4" r="3.9"/><circle cx="800.9" cy="261.4" r="3.9"/><circle cx="812.3" cy="261.4" r="3.9"/><circle cx="823.7" cy="261.4" r="3.9"/><circle cx="869.1" cy="261.4" r="3.9"/><circle cx="880.4" cy="261.4" r="3.9"/><circle cx="267.2" cy="249.6" r="3.9"/><circle cx="278.6" cy="249.6" r="3.9"/><circle cx="289.9" cy="249.6" r="3.9"/><circle cx="301.3" cy="249.6" r="3.9"/><circle cx="312.6" cy="249.6" r="3.9"/><circle cx="324.0" cy="249.6" r="3.9"/><circle cx="335.3" cy="249.6" r="3.9"/><circle cx="517.0" cy="249.6" r="3.9"/><circle cx="528.4" cy="249.6" r="3.9"/><circle cx="539.7" cy="249.6" r="3.9"/><circle cx="551.1" cy="249.6" r="3.9"/><circle cx="562.5" cy="249.6" r="3.9"/><circle cx="573.8" cy="249.6" r="3.9"/><circle cx="585.2" cy="249.6" r="3.9"/><circle cx="596.5" cy="249.6" r="3.9"/><circle cx="607.9" cy="249.6" r="3.9"/><circle cx="766.9" cy="249.6" r="3.9"/><circle cx="800.9" cy="249.6" r="3.9"/><circle cx="812.3" cy="249.6" r="3.9"/><circle cx="846.4" cy="249.6" r="3.9"/><circle cx="267.2" cy="237.9" r="3.9"/><circle cx="278.6" cy="237.9" r="3.9"/><circle cx="289.9" cy="237.9" r="3.9"/><circle cx="301.3" cy="237.9" r="3.9"/><circle cx="312.6" cy="237.9" r="3.9"/><circle cx="324.0" cy="237.9" r="3.9"/><circle cx="460.3" cy="237.9" r="3.9"/><circle cx="505.7" cy="237.9" r="3.9"/><circle cx="517.0" cy="237.9" r="3.9"/><circle cx="528.4" cy="237.9" r="3.9"/><circle cx="539.7" cy="237.9" r="3.9"/><circle cx="551.1" cy="237.9" r="3.9"/><circle cx="562.5" cy="237.9" r="3.9"/><circle cx="573.8" cy="237.9" r="3.9"/><circle cx="585.2" cy="237.9" r="3.9"/><circle cx="596.5" cy="237.9" r="3.9"/><circle cx="607.9" cy="237.9" r="3.9"/><circle cx="619.2" cy="237.9" r="3.9"/><circle cx="755.5" cy="237.9" r="3.9"/><circle cx="812.3" cy="237.9" r="3.9"/><circle cx="255.8" cy="226.1" r="3.9"/><circle cx="267.2" cy="226.1" r="3.9"/><circle cx="278.6" cy="226.1" r="3.9"/><circle cx="289.9" cy="226.1" r="3.9"/><circle cx="301.3" cy="226.1" r="3.9"/><circle cx="448.9" cy="226.1" r="3.9"/><circle cx="460.3" cy="226.1" r="3.9"/><circle cx="471.6" cy="226.1" r="3.9"/><circle cx="483.0" cy="226.1" r="3.9"/><circle cx="494.3" cy="226.1" r="3.9"/><circle cx="505.7" cy="226.1" r="3.9"/><circle cx="517.0" cy="226.1" r="3.9"/><circle cx="528.4" cy="226.1" r="3.9"/><circle cx="539.7" cy="226.1" r="3.9"/><circle cx="551.1" cy="226.1" r="3.9"/><circle cx="562.5" cy="226.1" r="3.9"/><circle cx="573.8" cy="226.1" r="3.9"/><circle cx="585.2" cy="226.1" r="3.9"/><circle cx="596.5" cy="226.1" r="3.9"/><circle cx="607.9" cy="226.1" r="3.9"/><circle cx="619.2" cy="226.1" r="3.9"/><circle cx="710.1" cy="226.1" r="3.9"/><circle cx="244.5" cy="214.4" r="3.9"/><circle cx="437.5" cy="214.4" r="3.9"/><circle cx="448.9" cy="214.4" r="3.9"/><circle cx="460.3" cy="214.4" r="3.9"/><circle cx="471.6" cy="214.4" r="3.9"/><circle cx="483.0" cy="214.4" r="3.9"/><circle cx="494.3" cy="214.4" r="3.9"/><circle cx="505.7" cy="214.4" r="3.9"/><circle cx="517.0" cy="214.4" r="3.9"/><circle cx="528.4" cy="214.4" r="3.9"/><circle cx="539.7" cy="214.4" r="3.9"/><circle cx="551.1" cy="214.4" r="3.9"/><circle cx="562.5" cy="214.4" r="3.9"/><circle cx="573.8" cy="214.4" r="3.9"/><circle cx="585.2" cy="214.4" r="3.9"/><circle cx="596.5" cy="214.4" r="3.9"/><circle cx="607.9" cy="214.4" r="3.9"/><circle cx="766.9" cy="214.4" r="3.9"/><circle cx="778.2" cy="214.4" r="3.9"/><circle cx="789.6" cy="214.4" r="3.9"/><circle cx="835.0" cy="214.4" r="3.9"/><circle cx="199.1" cy="202.7" r="3.9"/><circle cx="210.4" cy="202.7" r="3.9"/><circle cx="221.8" cy="202.7" r="3.9"/><circle cx="437.5" cy="202.7" r="3.9"/><circle cx="448.9" cy="202.7" r="3.9"/><circle cx="460.3" cy="202.7" r="3.9"/><circle cx="471.6" cy="202.7" r="3.9"/><circle cx="483.0" cy="202.7" r="3.9"/><circle cx="494.3" cy="202.7" r="3.9"/><circle cx="505.7" cy="202.7" r="3.9"/><circle cx="517.0" cy="202.7" r="3.9"/><circle cx="528.4" cy="202.7" r="3.9"/><circle cx="539.7" cy="202.7" r="3.9"/><circle cx="551.1" cy="202.7" r="3.9"/><circle cx="562.5" cy="202.7" r="3.9"/><circle cx="573.8" cy="202.7" r="3.9"/><circle cx="585.2" cy="202.7" r="3.9"/><circle cx="607.9" cy="202.7" r="3.9"/><circle cx="619.2" cy="202.7" r="3.9"/><circle cx="630.6" cy="202.7" r="3.9"/><circle cx="755.5" cy="202.7" r="3.9"/><circle cx="766.9" cy="202.7" r="3.9"/><circle cx="778.2" cy="202.7" r="3.9"/><circle cx="187.7" cy="190.9" r="3.9"/><circle cx="199.1" cy="190.9" r="3.9"/><circle cx="233.1" cy="190.9" r="3.9"/><circle cx="267.2" cy="190.9" r="3.9"/><circle cx="437.5" cy="190.9" r="3.9"/><circle cx="448.9" cy="190.9" r="3.9"/><circle cx="460.3" cy="190.9" r="3.9"/><circle cx="471.6" cy="190.9" r="3.9"/><circle cx="483.0" cy="190.9" r="3.9"/><circle cx="494.3" cy="190.9" r="3.9"/><circle cx="505.7" cy="190.9" r="3.9"/><circle cx="517.0" cy="190.9" r="3.9"/><circle cx="528.4" cy="190.9" r="3.9"/><circle cx="539.7" cy="190.9" r="3.9"/><circle cx="551.1" cy="190.9" r="3.9"/><circle cx="562.5" cy="190.9" r="3.9"/><circle cx="573.8" cy="190.9" r="3.9"/><circle cx="585.2" cy="190.9" r="3.9"/><circle cx="596.5" cy="190.9" r="3.9"/><circle cx="607.9" cy="190.9" r="3.9"/><circle cx="619.2" cy="190.9" r="3.9"/><circle cx="630.6" cy="190.9" r="3.9"/><circle cx="642.0" cy="190.9" r="3.9"/><circle cx="755.5" cy="190.9" r="3.9"/><circle cx="766.9" cy="190.9" r="3.9"/><circle cx="778.2" cy="190.9" r="3.9"/><circle cx="165.0" cy="179.2" r="3.9"/><circle cx="176.3" cy="179.2" r="3.9"/><circle cx="187.7" cy="179.2" r="3.9"/><circle cx="199.1" cy="179.2" r="3.9"/><circle cx="448.9" cy="179.2" r="3.9"/><circle cx="460.3" cy="179.2" r="3.9"/><circle cx="471.6" cy="179.2" r="3.9"/><circle cx="483.0" cy="179.2" r="3.9"/><circle cx="494.3" cy="179.2" r="3.9"/><circle cx="505.7" cy="179.2" r="3.9"/><circle cx="517.0" cy="179.2" r="3.9"/><circle cx="528.4" cy="179.2" r="3.9"/><circle cx="539.7" cy="179.2" r="3.9"/><circle cx="551.1" cy="179.2" r="3.9"/><circle cx="562.5" cy="179.2" r="3.9"/><circle cx="573.8" cy="179.2" r="3.9"/><circle cx="596.5" cy="179.2" r="3.9"/><circle cx="607.9" cy="179.2" r="3.9"/><circle cx="619.2" cy="179.2" r="3.9"/><circle cx="676.0" cy="179.2" r="3.9"/><circle cx="744.2" cy="179.2" r="3.9"/><circle cx="755.5" cy="179.2" r="3.9"/><circle cx="766.9" cy="179.2" r="3.9"/><circle cx="778.2" cy="179.2" r="3.9"/><circle cx="789.6" cy="179.2" r="3.9"/><circle cx="800.9" cy="179.2" r="3.9"/><circle cx="812.3" cy="179.2" r="3.9"/><circle cx="165.0" cy="167.4" r="3.9"/><circle cx="176.3" cy="167.4" r="3.9"/><circle cx="187.7" cy="167.4" r="3.9"/><circle cx="199.1" cy="167.4" r="3.9"/><circle cx="210.4" cy="167.4" r="3.9"/><circle cx="460.3" cy="167.4" r="3.9"/><circle cx="471.6" cy="167.4" r="3.9"/><circle cx="483.0" cy="167.4" r="3.9"/><circle cx="494.3" cy="167.4" r="3.9"/><circle cx="505.7" cy="167.4" r="3.9"/><circle cx="517.0" cy="167.4" r="3.9"/><circle cx="528.4" cy="167.4" r="3.9"/><circle cx="539.7" cy="167.4" r="3.9"/><circle cx="551.1" cy="167.4" r="3.9"/><circle cx="562.5" cy="167.4" r="3.9"/><circle cx="573.8" cy="167.4" r="3.9"/><circle cx="585.2" cy="167.4" r="3.9"/><circle cx="596.5" cy="167.4" r="3.9"/><circle cx="607.9" cy="167.4" r="3.9"/><circle cx="619.2" cy="167.4" r="3.9"/><circle cx="630.6" cy="167.4" r="3.9"/><circle cx="642.0" cy="167.4" r="3.9"/><circle cx="653.3" cy="167.4" r="3.9"/><circle cx="664.7" cy="167.4" r="3.9"/><circle cx="676.0" cy="167.4" r="3.9"/><circle cx="687.4" cy="167.4" r="3.9"/><circle cx="721.4" cy="167.4" r="3.9"/><circle cx="732.8" cy="167.4" r="3.9"/><circle cx="744.2" cy="167.4" r="3.9"/><circle cx="766.9" cy="167.4" r="3.9"/><circle cx="778.2" cy="167.4" r="3.9"/><circle cx="789.6" cy="167.4" r="3.9"/><circle cx="800.9" cy="167.4" r="3.9"/><circle cx="812.3" cy="167.4" r="3.9"/><circle cx="823.7" cy="167.4" r="3.9"/><circle cx="153.6" cy="155.7" r="3.9"/><circle cx="165.0" cy="155.7" r="3.9"/><circle cx="176.3" cy="155.7" r="3.9"/><circle cx="187.7" cy="155.7" r="3.9"/><circle cx="199.1" cy="155.7" r="3.9"/><circle cx="210.4" cy="155.7" r="3.9"/><circle cx="221.8" cy="155.7" r="3.9"/><circle cx="233.1" cy="155.7" r="3.9"/><circle cx="244.5" cy="155.7" r="3.9"/><circle cx="255.8" cy="155.7" r="3.9"/><circle cx="460.3" cy="155.7" r="3.9"/><circle cx="471.6" cy="155.7" r="3.9"/><circle cx="483.0" cy="155.7" r="3.9"/><circle cx="494.3" cy="155.7" r="3.9"/><circle cx="505.7" cy="155.7" r="3.9"/><circle cx="585.2" cy="155.7" r="3.9"/><circle cx="596.5" cy="155.7" r="3.9"/><circle cx="607.9" cy="155.7" r="3.9"/><circle cx="619.2" cy="155.7" r="3.9"/><circle cx="630.6" cy="155.7" r="3.9"/><circle cx="642.0" cy="155.7" r="3.9"/><circle cx="653.3" cy="155.7" r="3.9"/><circle cx="664.7" cy="155.7" r="3.9"/><circle cx="676.0" cy="155.7" r="3.9"/><circle cx="687.4" cy="155.7" r="3.9"/><circle cx="710.1" cy="155.7" r="3.9"/><circle cx="721.4" cy="155.7" r="3.9"/><circle cx="732.8" cy="155.7" r="3.9"/><circle cx="744.2" cy="155.7" r="3.9"/><circle cx="755.5" cy="155.7" r="3.9"/><circle cx="766.9" cy="155.7" r="3.9"/><circle cx="778.2" cy="155.7" r="3.9"/><circle cx="789.6" cy="155.7" r="3.9"/><circle cx="800.9" cy="155.7" r="3.9"/><circle cx="812.3" cy="155.7" r="3.9"/><circle cx="823.7" cy="155.7" r="3.9"/><circle cx="142.3" cy="144.0" r="3.9"/><circle cx="153.6" cy="144.0" r="3.9"/><circle cx="165.0" cy="144.0" r="3.9"/><circle cx="176.3" cy="144.0" r="3.9"/><circle cx="187.7" cy="144.0" r="3.9"/><circle cx="199.1" cy="144.0" r="3.9"/><circle cx="210.4" cy="144.0" r="3.9"/><circle cx="221.8" cy="144.0" r="3.9"/><circle cx="233.1" cy="144.0" r="3.9"/><circle cx="244.5" cy="144.0" r="3.9"/><circle cx="255.8" cy="144.0" r="3.9"/><circle cx="460.3" cy="144.0" r="3.9"/><circle cx="471.6" cy="144.0" r="3.9"/><circle cx="562.5" cy="144.0" r="3.9"/><circle cx="573.8" cy="144.0" r="3.9"/><circle cx="585.2" cy="144.0" r="3.9"/><circle cx="596.5" cy="144.0" r="3.9"/><circle cx="607.9" cy="144.0" r="3.9"/><circle cx="619.2" cy="144.0" r="3.9"/><circle cx="642.0" cy="144.0" r="3.9"/><circle cx="653.3" cy="144.0" r="3.9"/><circle cx="664.7" cy="144.0" r="3.9"/><circle cx="676.0" cy="144.0" r="3.9"/><circle cx="687.4" cy="144.0" r="3.9"/><circle cx="698.7" cy="144.0" r="3.9"/><circle cx="710.1" cy="144.0" r="3.9"/><circle cx="721.4" cy="144.0" r="3.9"/><circle cx="732.8" cy="144.0" r="3.9"/><circle cx="744.2" cy="144.0" r="3.9"/><circle cx="755.5" cy="144.0" r="3.9"/><circle cx="766.9" cy="144.0" r="3.9"/><circle cx="778.2" cy="144.0" r="3.9"/><circle cx="789.6" cy="144.0" r="3.9"/><circle cx="800.9" cy="144.0" r="3.9"/><circle cx="812.3" cy="144.0" r="3.9"/><circle cx="823.7" cy="144.0" r="3.9"/><circle cx="846.4" cy="144.0" r="3.9"/><circle cx="880.4" cy="144.0" r="3.9"/><circle cx="130.9" cy="132.2" r="3.9"/><circle cx="142.3" cy="132.2" r="3.9"/><circle cx="153.6" cy="132.2" r="3.9"/><circle cx="165.0" cy="132.2" r="3.9"/><circle cx="176.3" cy="132.2" r="3.9"/><circle cx="187.7" cy="132.2" r="3.9"/><circle cx="199.1" cy="132.2" r="3.9"/><circle cx="210.4" cy="132.2" r="3.9"/><circle cx="221.8" cy="132.2" r="3.9"/><circle cx="233.1" cy="132.2" r="3.9"/><circle cx="244.5" cy="132.2" r="3.9"/><circle cx="255.8" cy="132.2" r="3.9"/><circle cx="267.2" cy="132.2" r="3.9"/><circle cx="460.3" cy="132.2" r="3.9"/><circle cx="471.6" cy="132.2" r="3.9"/><circle cx="483.0" cy="132.2" r="3.9"/><circle cx="528.4" cy="132.2" r="3.9"/><circle cx="539.7" cy="132.2" r="3.9"/><circle cx="551.1" cy="132.2" r="3.9"/><circle cx="573.8" cy="132.2" r="3.9"/><circle cx="585.2" cy="132.2" r="3.9"/><circle cx="596.5" cy="132.2" r="3.9"/><circle cx="607.9" cy="132.2" r="3.9"/><circle cx="619.2" cy="132.2" r="3.9"/><circle cx="642.0" cy="132.2" r="3.9"/><circle cx="653.3" cy="132.2" r="3.9"/><circle cx="664.7" cy="132.2" r="3.9"/><circle cx="676.0" cy="132.2" r="3.9"/><circle cx="687.4" cy="132.2" r="3.9"/><circle cx="698.7" cy="132.2" r="3.9"/><circle cx="710.1" cy="132.2" r="3.9"/><circle cx="721.4" cy="132.2" r="3.9"/><circle cx="732.8" cy="132.2" r="3.9"/><circle cx="744.2" cy="132.2" r="3.9"/><circle cx="755.5" cy="132.2" r="3.9"/><circle cx="766.9" cy="132.2" r="3.9"/><circle cx="778.2" cy="132.2" r="3.9"/><circle cx="789.6" cy="132.2" r="3.9"/><circle cx="800.9" cy="132.2" r="3.9"/><circle cx="812.3" cy="132.2" r="3.9"/><circle cx="823.7" cy="132.2" r="3.9"/><circle cx="835.0" cy="132.2" r="3.9"/><circle cx="846.4" cy="132.2" r="3.9"/><circle cx="142.3" cy="120.5" r="3.9"/><circle cx="153.6" cy="120.5" r="3.9"/><circle cx="165.0" cy="120.5" r="3.9"/><circle cx="176.3" cy="120.5" r="3.9"/><circle cx="187.7" cy="120.5" r="3.9"/><circle cx="199.1" cy="120.5" r="3.9"/><circle cx="210.4" cy="120.5" r="3.9"/><circle cx="221.8" cy="120.5" r="3.9"/><circle cx="233.1" cy="120.5" r="3.9"/><circle cx="244.5" cy="120.5" r="3.9"/><circle cx="278.6" cy="120.5" r="3.9"/><circle cx="289.9" cy="120.5" r="3.9"/><circle cx="483.0" cy="120.5" r="3.9"/><circle cx="494.3" cy="120.5" r="3.9"/><circle cx="505.7" cy="120.5" r="3.9"/><circle cx="517.0" cy="120.5" r="3.9"/><circle cx="528.4" cy="120.5" r="3.9"/><circle cx="539.7" cy="120.5" r="3.9"/><circle cx="551.1" cy="120.5" r="3.9"/><circle cx="562.5" cy="120.5" r="3.9"/><circle cx="596.5" cy="120.5" r="3.9"/><circle cx="607.9" cy="120.5" r="3.9"/><circle cx="630.6" cy="120.5" r="3.9"/><circle cx="642.0" cy="120.5" r="3.9"/><circle cx="653.3" cy="120.5" r="3.9"/><circle cx="664.7" cy="120.5" r="3.9"/><circle cx="676.0" cy="120.5" r="3.9"/><circle cx="687.4" cy="120.5" r="3.9"/><circle cx="698.7" cy="120.5" r="3.9"/><circle cx="710.1" cy="120.5" r="3.9"/><circle cx="721.4" cy="120.5" r="3.9"/><circle cx="732.8" cy="120.5" r="3.9"/><circle cx="744.2" cy="120.5" r="3.9"/><circle cx="755.5" cy="120.5" r="3.9"/><circle cx="766.9" cy="120.5" r="3.9"/><circle cx="778.2" cy="120.5" r="3.9"/><circle cx="789.6" cy="120.5" r="3.9"/><circle cx="800.9" cy="120.5" r="3.9"/><circle cx="812.3" cy="120.5" r="3.9"/><circle cx="823.7" cy="120.5" r="3.9"/><circle cx="835.0" cy="120.5" r="3.9"/><circle cx="846.4" cy="120.5" r="3.9"/><circle cx="857.7" cy="120.5" r="3.9"/><circle cx="869.1" cy="120.5" r="3.9"/><circle cx="142.3" cy="108.7" r="3.9"/><circle cx="153.6" cy="108.7" r="3.9"/><circle cx="165.0" cy="108.7" r="3.9"/><circle cx="176.3" cy="108.7" r="3.9"/><circle cx="199.1" cy="108.7" r="3.9"/><circle cx="210.4" cy="108.7" r="3.9"/><circle cx="483.0" cy="108.7" r="3.9"/><circle cx="494.3" cy="108.7" r="3.9"/><circle cx="505.7" cy="108.7" r="3.9"/><circle cx="517.0" cy="108.7" r="3.9"/><circle cx="528.4" cy="108.7" r="3.9"/><circle cx="539.7" cy="108.7" r="3.9"/><circle cx="551.1" cy="108.7" r="3.9"/><circle cx="562.5" cy="108.7" r="3.9"/><circle cx="573.8" cy="108.7" r="3.9"/><circle cx="585.2" cy="108.7" r="3.9"/><circle cx="596.5" cy="108.7" r="3.9"/><circle cx="607.9" cy="108.7" r="3.9"/><circle cx="619.2" cy="108.7" r="3.9"/><circle cx="630.6" cy="108.7" r="3.9"/><circle cx="642.0" cy="108.7" r="3.9"/><circle cx="653.3" cy="108.7" r="3.9"/><circle cx="664.7" cy="108.7" r="3.9"/><circle cx="676.0" cy="108.7" r="3.9"/><circle cx="687.4" cy="108.7" r="3.9"/><circle cx="698.7" cy="108.7" r="3.9"/><circle cx="710.1" cy="108.7" r="3.9"/><circle cx="721.4" cy="108.7" r="3.9"/><circle cx="732.8" cy="108.7" r="3.9"/><circle cx="744.2" cy="108.7" r="3.9"/><circle cx="755.5" cy="108.7" r="3.9"/><circle cx="766.9" cy="108.7" r="3.9"/><circle cx="778.2" cy="108.7" r="3.9"/><circle cx="789.6" cy="108.7" r="3.9"/><circle cx="800.9" cy="108.7" r="3.9"/><circle cx="812.3" cy="108.7" r="3.9"/><circle cx="823.7" cy="108.7" r="3.9"/><circle cx="835.0" cy="108.7" r="3.9"/><circle cx="846.4" cy="108.7" r="3.9"/><circle cx="857.7" cy="108.7" r="3.9"/><circle cx="869.1" cy="108.7" r="3.9"/><circle cx="880.4" cy="108.7" r="3.9"/><circle cx="460.3" cy="97.0" r="3.9"/><circle cx="471.6" cy="97.0" r="3.9"/><circle cx="483.0" cy="97.0" r="3.9"/><circle cx="505.7" cy="97.0" r="3.9"/><circle cx="517.0" cy="97.0" r="3.9"/><circle cx="528.4" cy="97.0" r="3.9"/><circle cx="539.7" cy="97.0" r="3.9"/><circle cx="551.1" cy="97.0" r="3.9"/><circle cx="562.5" cy="97.0" r="3.9"/><circle cx="573.8" cy="97.0" r="3.9"/><circle cx="585.2" cy="97.0" r="3.9"/><circle cx="596.5" cy="97.0" r="3.9"/><circle cx="607.9" cy="97.0" r="3.9"/><circle cx="619.2" cy="97.0" r="3.9"/><circle cx="630.6" cy="97.0" r="3.9"/><circle cx="642.0" cy="97.0" r="3.9"/><circle cx="653.3" cy="97.0" r="3.9"/><circle cx="664.7" cy="97.0" r="3.9"/><circle cx="676.0" cy="97.0" r="3.9"/><circle cx="687.4" cy="97.0" r="3.9"/><circle cx="698.7" cy="97.0" r="3.9"/><circle cx="710.1" cy="97.0" r="3.9"/><circle cx="721.4" cy="97.0" r="3.9"/><circle cx="732.8" cy="97.0" r="3.9"/><circle cx="744.2" cy="97.0" r="3.9"/><circle cx="755.5" cy="97.0" r="3.9"/><circle cx="766.9" cy="97.0" r="3.9"/><circle cx="778.2" cy="97.0" r="3.9"/><circle cx="789.6" cy="97.0" r="3.9"/><circle cx="800.9" cy="97.0" r="3.9"/><circle cx="812.3" cy="97.0" r="3.9"/><circle cx="823.7" cy="97.0" r="3.9"/><circle cx="835.0" cy="97.0" r="3.9"/><circle cx="846.4" cy="97.0" r="3.9"/><circle cx="857.7" cy="97.0" r="3.9"/><circle cx="869.1" cy="97.0" r="3.9"/><circle cx="880.4" cy="97.0" r="3.9"/><circle cx="471.6" cy="85.3" r="3.9"/><circle cx="528.4" cy="85.3" r="3.9"/><circle cx="551.1" cy="85.3" r="3.9"/><circle cx="562.5" cy="85.3" r="3.9"/><circle cx="573.8" cy="85.3" r="3.9"/><circle cx="585.2" cy="85.3" r="3.9"/><circle cx="596.5" cy="85.3" r="3.9"/><circle cx="607.9" cy="85.3" r="3.9"/><circle cx="619.2" cy="85.3" r="3.9"/><circle cx="630.6" cy="85.3" r="3.9"/><circle cx="642.0" cy="85.3" r="3.9"/><circle cx="653.3" cy="85.3" r="3.9"/><circle cx="664.7" cy="85.3" r="3.9"/><circle cx="676.0" cy="85.3" r="3.9"/><circle cx="687.4" cy="85.3" r="3.9"/><circle cx="698.7" cy="85.3" r="3.9"/><circle cx="710.1" cy="85.3" r="3.9"/><circle cx="721.4" cy="85.3" r="3.9"/><circle cx="732.8" cy="85.3" r="3.9"/><circle cx="744.2" cy="85.3" r="3.9"/><circle cx="755.5" cy="85.3" r="3.9"/><circle cx="766.9" cy="85.3" r="3.9"/><circle cx="778.2" cy="85.3" r="3.9"/><circle cx="789.6" cy="85.3" r="3.9"/><circle cx="800.9" cy="85.3" r="3.9"/><circle cx="812.3" cy="85.3" r="3.9"/><circle cx="823.7" cy="85.3" r="3.9"/><circle cx="835.0" cy="85.3" r="3.9"/><circle cx="846.4" cy="85.3" r="3.9"/><circle cx="857.7" cy="85.3" r="3.9"/><circle cx="869.1" cy="85.3" r="3.9"/><circle cx="937.2" cy="85.3" r="3.9"/><circle cx="17.4" cy="73.5" r="3.9"/><circle cx="28.7" cy="73.5" r="3.9"/><circle cx="40.1" cy="73.5" r="3.9"/><circle cx="51.4" cy="73.5" r="3.9"/><circle cx="62.8" cy="73.5" r="3.9"/><circle cx="74.1" cy="73.5" r="3.9"/><circle cx="346.7" cy="73.5" r="3.9"/><circle cx="358.0" cy="73.5" r="3.9"/><circle cx="505.7" cy="73.5" r="3.9"/><circle cx="517.0" cy="73.5" r="3.9"/><circle cx="528.4" cy="73.5" r="3.9"/><circle cx="551.1" cy="73.5" r="3.9"/><circle cx="562.5" cy="73.5" r="3.9"/><circle cx="573.8" cy="73.5" r="3.9"/><circle cx="585.2" cy="73.5" r="3.9"/><circle cx="596.5" cy="73.5" r="3.9"/><circle cx="607.9" cy="73.5" r="3.9"/><circle cx="619.2" cy="73.5" r="3.9"/><circle cx="630.6" cy="73.5" r="3.9"/><circle cx="642.0" cy="73.5" r="3.9"/><circle cx="653.3" cy="73.5" r="3.9"/><circle cx="664.7" cy="73.5" r="3.9"/><circle cx="676.0" cy="73.5" r="3.9"/><circle cx="687.4" cy="73.5" r="3.9"/><circle cx="698.7" cy="73.5" r="3.9"/><circle cx="710.1" cy="73.5" r="3.9"/><circle cx="721.4" cy="73.5" r="3.9"/><circle cx="732.8" cy="73.5" r="3.9"/><circle cx="744.2" cy="73.5" r="3.9"/><circle cx="755.5" cy="73.5" r="3.9"/><circle cx="766.9" cy="73.5" r="3.9"/><circle cx="778.2" cy="73.5" r="3.9"/><circle cx="789.6" cy="73.5" r="3.9"/><circle cx="800.9" cy="73.5" r="3.9"/><circle cx="812.3" cy="73.5" r="3.9"/><circle cx="823.7" cy="73.5" r="3.9"/><circle cx="835.0" cy="73.5" r="3.9"/><circle cx="846.4" cy="73.5" r="3.9"/><circle cx="857.7" cy="73.5" r="3.9"/><circle cx="869.1" cy="73.5" r="3.9"/><circle cx="880.4" cy="73.5" r="3.9"/><circle cx="891.8" cy="73.5" r="3.9"/><circle cx="903.1" cy="73.5" r="3.9"/><circle cx="914.5" cy="73.5" r="3.9"/><circle cx="925.9" cy="73.5" r="3.9"/><circle cx="937.2" cy="73.5" r="3.9"/><circle cx="948.6" cy="73.5" r="3.9"/><circle cx="959.9" cy="73.5" r="3.9"/><circle cx="971.3" cy="73.5" r="3.9"/><circle cx="17.4" cy="61.8" r="3.9"/><circle cx="28.7" cy="61.8" r="3.9"/><circle cx="40.1" cy="61.8" r="3.9"/><circle cx="51.4" cy="61.8" r="3.9"/><circle cx="62.8" cy="61.8" r="3.9"/><circle cx="74.1" cy="61.8" r="3.9"/><circle cx="335.3" cy="61.8" r="3.9"/><circle cx="346.7" cy="61.8" r="3.9"/><circle cx="358.0" cy="61.8" r="3.9"/><circle cx="426.2" cy="61.8" r="3.9"/><circle cx="437.5" cy="61.8" r="3.9"/><circle cx="517.0" cy="61.8" r="3.9"/><circle cx="528.4" cy="61.8" r="3.9"/><circle cx="539.7" cy="61.8" r="3.9"/><circle cx="562.5" cy="61.8" r="3.9"/><circle cx="573.8" cy="61.8" r="3.9"/><circle cx="607.9" cy="61.8" r="3.9"/><circle cx="619.2" cy="61.8" r="3.9"/><circle cx="630.6" cy="61.8" r="3.9"/><circle cx="642.0" cy="61.8" r="3.9"/><circle cx="653.3" cy="61.8" r="3.9"/><circle cx="664.7" cy="61.8" r="3.9"/><circle cx="676.0" cy="61.8" r="3.9"/><circle cx="687.4" cy="61.8" r="3.9"/><circle cx="698.7" cy="61.8" r="3.9"/><circle cx="710.1" cy="61.8" r="3.9"/><circle cx="721.4" cy="61.8" r="3.9"/><circle cx="732.8" cy="61.8" r="3.9"/><circle cx="744.2" cy="61.8" r="3.9"/><circle cx="755.5" cy="61.8" r="3.9"/><circle cx="766.9" cy="61.8" r="3.9"/><circle cx="778.2" cy="61.8" r="3.9"/><circle cx="789.6" cy="61.8" r="3.9"/><circle cx="800.9" cy="61.8" r="3.9"/><circle cx="812.3" cy="61.8" r="3.9"/><circle cx="823.7" cy="61.8" r="3.9"/><circle cx="835.0" cy="61.8" r="3.9"/><circle cx="846.4" cy="61.8" r="3.9"/><circle cx="857.7" cy="61.8" r="3.9"/><circle cx="869.1" cy="61.8" r="3.9"/><circle cx="880.4" cy="61.8" r="3.9"/><circle cx="891.8" cy="61.8" r="3.9"/><circle cx="903.1" cy="61.8" r="3.9"/><circle cx="914.5" cy="61.8" r="3.9"/><circle cx="925.9" cy="61.8" r="3.9"/><circle cx="937.2" cy="61.8" r="3.9"/><circle cx="948.6" cy="61.8" r="3.9"/><circle cx="959.9" cy="61.8" r="3.9"/><circle cx="971.3" cy="61.8" r="3.9"/><circle cx="982.6" cy="61.8" r="3.9"/><circle cx="17.4" cy="50.0" r="3.9"/><circle cx="28.7" cy="50.0" r="3.9"/><circle cx="40.1" cy="50.0" r="3.9"/><circle cx="51.4" cy="50.0" r="3.9"/><circle cx="62.8" cy="50.0" r="3.9"/><circle cx="74.1" cy="50.0" r="3.9"/><circle cx="346.7" cy="50.0" r="3.9"/><circle cx="358.0" cy="50.0" r="3.9"/><circle cx="369.4" cy="50.0" r="3.9"/><circle cx="380.8" cy="50.0" r="3.9"/><circle cx="392.1" cy="50.0" r="3.9"/><circle cx="403.5" cy="50.0" r="3.9"/><circle cx="539.7" cy="50.0" r="3.9"/><circle cx="551.1" cy="50.0" r="3.9"/><circle cx="562.5" cy="50.0" r="3.9"/><circle cx="573.8" cy="50.0" r="3.9"/><circle cx="585.2" cy="50.0" r="3.9"/><circle cx="664.7" cy="50.0" r="3.9"/><circle cx="687.4" cy="50.0" r="3.9"/><circle cx="698.7" cy="50.0" r="3.9"/><circle cx="710.1" cy="50.0" r="3.9"/><circle cx="721.4" cy="50.0" r="3.9"/><circle cx="732.8" cy="50.0" r="3.9"/><circle cx="744.2" cy="50.0" r="3.9"/><circle cx="755.5" cy="50.0" r="3.9"/><circle cx="766.9" cy="50.0" r="3.9"/><circle cx="778.2" cy="50.0" r="3.9"/><circle cx="789.6" cy="50.0" r="3.9"/><circle cx="800.9" cy="50.0" r="3.9"/><circle cx="812.3" cy="50.0" r="3.9"/><circle cx="823.7" cy="50.0" r="3.9"/><circle cx="835.0" cy="50.0" r="3.9"/><circle cx="846.4" cy="50.0" r="3.9"/><circle cx="857.7" cy="50.0" r="3.9"/><circle cx="869.1" cy="50.0" r="3.9"/><circle cx="880.4" cy="50.0" r="3.9"/><circle cx="891.8" cy="50.0" r="3.9"/><circle cx="903.1" cy="50.0" r="3.9"/><circle cx="914.5" cy="50.0" r="3.9"/><circle cx="925.9" cy="50.0" r="3.9"/><circle cx="937.2" cy="50.0" r="3.9"/><circle cx="948.6" cy="50.0" r="3.9"/><circle cx="959.9" cy="50.0" r="3.9"/><circle cx="971.3" cy="50.0" r="3.9"/><circle cx="982.6" cy="50.0" r="3.9"/><circle cx="335.3" cy="38.3" r="3.9"/><circle cx="346.7" cy="38.3" r="3.9"/><circle cx="358.0" cy="38.3" r="3.9"/><circle cx="369.4" cy="38.3" r="3.9"/><circle cx="380.8" cy="38.3" r="3.9"/><circle cx="392.1" cy="38.3" r="3.9"/><circle cx="403.5" cy="38.3" r="3.9"/><circle cx="414.8" cy="38.3" r="3.9"/><circle cx="642.0" cy="38.3" r="3.9"/><circle cx="721.4" cy="38.3" r="3.9"/><circle cx="732.8" cy="38.3" r="3.9"/><circle cx="744.2" cy="38.3" r="3.9"/><circle cx="755.5" cy="38.3" r="3.9"/><circle cx="766.9" cy="38.3" r="3.9"/><circle cx="778.2" cy="38.3" r="3.9"/><circle cx="789.6" cy="38.3" r="3.9"/><circle cx="800.9" cy="38.3" r="3.9"/><circle cx="812.3" cy="38.3" r="3.9"/><circle cx="823.7" cy="38.3" r="3.9"/><circle cx="835.0" cy="38.3" r="3.9"/><circle cx="846.4" cy="38.3" r="3.9"/><circle cx="289.9" cy="26.5" r="3.9"/><circle cx="301.3" cy="26.5" r="3.9"/><circle cx="312.6" cy="26.5" r="3.9"/><circle cx="324.0" cy="26.5" r="3.9"/><circle cx="335.3" cy="26.5" r="3.9"/><circle cx="346.7" cy="26.5" r="3.9"/><circle cx="358.0" cy="26.5" r="3.9"/><circle cx="369.4" cy="26.5" r="3.9"/><circle cx="380.8" cy="26.5" r="3.9"/><circle cx="392.1" cy="26.5" r="3.9"/><circle cx="403.5" cy="26.5" r="3.9"/><circle cx="414.8" cy="26.5" r="3.9"/><circle cx="426.2" cy="26.5" r="3.9"/><circle cx="528.4" cy="26.5" r="3.9"/><circle cx="778.2" cy="26.5" r="3.9"/><circle cx="301.3" cy="14.8" r="3.9"/><circle cx="312.6" cy="14.8" r="3.9"/><circle cx="324.0" cy="14.8" r="3.9"/><circle cx="335.3" cy="14.8" r="3.9"/><circle cx="346.7" cy="14.8" r="3.9"/><circle cx="358.0" cy="14.8" r="3.9"/><circle cx="369.4" cy="14.8" r="3.9"/><circle cx="380.8" cy="14.8" r="3.9"/><circle cx="392.1" cy="14.8" r="3.9"/><circle cx="403.5" cy="14.8" r="3.9"/><circle cx="414.8" cy="14.8" r="3.9"/><circle cx="426.2" cy="14.8" r="3.9"/><circle cx="437.5" cy="14.8" r="3.9"/><circle cx="755.5" cy="14.8" r="3.9"/></g>
+  <g class="dots-gold"><circle cx="880.4" cy="355.3" r="3.9"/><circle cx="891.8" cy="355.3" r="3.9"/><circle cx="903.1" cy="355.3" r="3.9"/><circle cx="812.3" cy="343.6" r="3.9"/><circle cx="823.7" cy="343.6" r="3.9"/><circle cx="835.0" cy="343.6" r="3.9"/><circle cx="846.4" cy="343.6" r="3.9"/><circle cx="857.7" cy="343.6" r="3.9"/><circle cx="869.1" cy="343.6" r="3.9"/><circle cx="880.4" cy="343.6" r="3.9"/><circle cx="891.8" cy="343.6" r="3.9"/><circle cx="903.1" cy="343.6" r="3.9"/><circle cx="914.5" cy="343.6" r="3.9"/><circle cx="812.3" cy="331.8" r="3.9"/><circle cx="823.7" cy="331.8" r="3.9"/><circle cx="835.0" cy="331.8" r="3.9"/><circle cx="846.4" cy="331.8" r="3.9"/><circle cx="857.7" cy="331.8" r="3.9"/><circle cx="869.1" cy="331.8" r="3.9"/><circle cx="880.4" cy="331.8" r="3.9"/><circle cx="891.8" cy="331.8" r="3.9"/><circle cx="903.1" cy="331.8" r="3.9"/><circle cx="914.5" cy="331.8" r="3.9"/><circle cx="812.3" cy="320.1" r="3.9"/><circle cx="823.7" cy="320.1" r="3.9"/><circle cx="835.0" cy="320.1" r="3.9"/><circle cx="846.4" cy="320.1" r="3.9"/><circle cx="857.7" cy="320.1" r="3.9"/><circle cx="869.1" cy="320.1" r="3.9"/><circle cx="880.4" cy="320.1" r="3.9"/><circle cx="891.8" cy="320.1" r="3.9"/><circle cx="903.1" cy="320.1" r="3.9"/><circle cx="835.0" cy="308.3" r="3.9"/><circle cx="846.4" cy="308.3" r="3.9"/><circle cx="857.7" cy="308.3" r="3.9"/><circle cx="869.1" cy="308.3" r="3.9"/><circle cx="880.4" cy="308.3" r="3.9"/><circle cx="891.8" cy="308.3" r="3.9"/><circle cx="846.4" cy="296.6" r="3.9"/><circle cx="857.7" cy="296.6" r="3.9"/><circle cx="891.8" cy="296.6" r="3.9"/><circle cx="698.7" cy="214.4" r="3.9"/><circle cx="710.1" cy="214.4" r="3.9"/><circle cx="698.7" cy="202.7" r="3.9"/><circle cx="710.1" cy="202.7" r="3.9"/><circle cx="698.7" cy="190.9" r="3.9"/><circle cx="710.1" cy="190.9" r="3.9"/><circle cx="721.4" cy="190.9" r="3.9"/><circle cx="642.0" cy="179.2" r="3.9"/><circle cx="687.4" cy="179.2" r="3.9"/><circle cx="698.7" cy="179.2" r="3.9"/><circle cx="710.1" cy="179.2" r="3.9"/><circle cx="721.4" cy="179.2" r="3.9"/><circle cx="732.8" cy="179.2" r="3.9"/><circle cx="698.7" cy="167.4" r="3.9"/><circle cx="710.1" cy="167.4" r="3.9"/><circle cx="755.5" cy="167.4" r="3.9"/><circle cx="698.7" cy="155.7" r="3.9"/><circle cx="255.8" cy="120.5" r="3.9"/><circle cx="267.2" cy="120.5" r="3.9"/><circle cx="301.3" cy="120.5" r="3.9"/><circle cx="130.9" cy="108.7" r="3.9"/><circle cx="187.7" cy="108.7" r="3.9"/><circle cx="221.8" cy="108.7" r="3.9"/><circle cx="233.1" cy="108.7" r="3.9"/><circle cx="244.5" cy="108.7" r="3.9"/><circle cx="255.8" cy="108.7" r="3.9"/><circle cx="267.2" cy="108.7" r="3.9"/><circle cx="278.6" cy="108.7" r="3.9"/><circle cx="324.0" cy="108.7" r="3.9"/><circle cx="119.6" cy="97.0" r="3.9"/><circle cx="130.9" cy="97.0" r="3.9"/><circle cx="142.3" cy="97.0" r="3.9"/><circle cx="153.6" cy="97.0" r="3.9"/><circle cx="165.0" cy="97.0" r="3.9"/><circle cx="176.3" cy="97.0" r="3.9"/><circle cx="187.7" cy="97.0" r="3.9"/><circle cx="199.1" cy="97.0" r="3.9"/><circle cx="210.4" cy="97.0" r="3.9"/><circle cx="221.8" cy="97.0" r="3.9"/><circle cx="233.1" cy="97.0" r="3.9"/><circle cx="244.5" cy="97.0" r="3.9"/><circle cx="267.2" cy="97.0" r="3.9"/><circle cx="278.6" cy="97.0" r="3.9"/><circle cx="289.9" cy="97.0" r="3.9"/><circle cx="301.3" cy="97.0" r="3.9"/><circle cx="312.6" cy="97.0" r="3.9"/><circle cx="324.0" cy="97.0" r="3.9"/><circle cx="108.2" cy="85.3" r="3.9"/><circle cx="119.6" cy="85.3" r="3.9"/><circle cx="130.9" cy="85.3" r="3.9"/><circle cx="142.3" cy="85.3" r="3.9"/><circle cx="153.6" cy="85.3" r="3.9"/><circle cx="165.0" cy="85.3" r="3.9"/><circle cx="176.3" cy="85.3" r="3.9"/><circle cx="187.7" cy="85.3" r="3.9"/><circle cx="199.1" cy="85.3" r="3.9"/><circle cx="210.4" cy="85.3" r="3.9"/><circle cx="221.8" cy="85.3" r="3.9"/><circle cx="267.2" cy="85.3" r="3.9"/><circle cx="278.6" cy="85.3" r="3.9"/><circle cx="289.9" cy="85.3" r="3.9"/><circle cx="301.3" cy="85.3" r="3.9"/><circle cx="85.5" cy="73.5" r="3.9"/><circle cx="96.9" cy="73.5" r="3.9"/><circle cx="108.2" cy="73.5" r="3.9"/><circle cx="119.6" cy="73.5" r="3.9"/><circle cx="130.9" cy="73.5" r="3.9"/><circle cx="142.3" cy="73.5" r="3.9"/><circle cx="153.6" cy="73.5" r="3.9"/><circle cx="165.0" cy="73.5" r="3.9"/><circle cx="176.3" cy="73.5" r="3.9"/><circle cx="187.7" cy="73.5" r="3.9"/><circle cx="199.1" cy="73.5" r="3.9"/><circle cx="210.4" cy="73.5" r="3.9"/><circle cx="267.2" cy="73.5" r="3.9"/><circle cx="278.6" cy="73.5" r="3.9"/><circle cx="85.5" cy="61.8" r="3.9"/><circle cx="96.9" cy="61.8" r="3.9"/><circle cx="108.2" cy="61.8" r="3.9"/><circle cx="119.6" cy="61.8" r="3.9"/><circle cx="130.9" cy="61.8" r="3.9"/><circle cx="142.3" cy="61.8" r="3.9"/><circle cx="153.6" cy="61.8" r="3.9"/><circle cx="165.0" cy="61.8" r="3.9"/><circle cx="176.3" cy="61.8" r="3.9"/><circle cx="187.7" cy="61.8" r="3.9"/><circle cx="199.1" cy="61.8" r="3.9"/><circle cx="210.4" cy="61.8" r="3.9"/><circle cx="221.8" cy="61.8" r="3.9"/><circle cx="233.1" cy="61.8" r="3.9"/><circle cx="244.5" cy="61.8" r="3.9"/><circle cx="267.2" cy="61.8" r="3.9"/><circle cx="278.6" cy="61.8" r="3.9"/><circle cx="289.9" cy="61.8" r="3.9"/><circle cx="85.5" cy="50.0" r="3.9"/><circle cx="96.9" cy="50.0" r="3.9"/><circle cx="108.2" cy="50.0" r="3.9"/><circle cx="119.6" cy="50.0" r="3.9"/><circle cx="130.9" cy="50.0" r="3.9"/><circle cx="142.3" cy="50.0" r="3.9"/><circle cx="165.0" cy="50.0" r="3.9"/><circle cx="176.3" cy="50.0" r="3.9"/><circle cx="187.7" cy="50.0" r="3.9"/><circle cx="210.4" cy="50.0" r="3.9"/><circle cx="221.8" cy="50.0" r="3.9"/><circle cx="244.5" cy="50.0" r="3.9"/><circle cx="267.2" cy="50.0" r="3.9"/><circle cx="278.6" cy="50.0" r="3.9"/><circle cx="289.9" cy="50.0" r="3.9"/><circle cx="130.9" cy="38.3" r="3.9"/><circle cx="142.3" cy="38.3" r="3.9"/><circle cx="153.6" cy="38.3" r="3.9"/><circle cx="176.3" cy="38.3" r="3.9"/><circle cx="199.1" cy="38.3" r="3.9"/><circle cx="210.4" cy="38.3" r="3.9"/><circle cx="221.8" cy="38.3" r="3.9"/><circle cx="233.1" cy="38.3" r="3.9"/><circle cx="244.5" cy="38.3" r="3.9"/><circle cx="255.8" cy="38.3" r="3.9"/><circle cx="142.3" cy="26.5" r="3.9"/><circle cx="210.4" cy="26.5" r="3.9"/><circle cx="233.1" cy="26.5" r="3.9"/><circle cx="244.5" cy="26.5" r="3.9"/><circle cx="255.8" cy="26.5" r="3.9"/><circle cx="221.8" cy="14.8" r="3.9"/><circle cx="233.1" cy="14.8" r="3.9"/><circle cx="244.5" cy="14.8" r="3.9"/><circle cx="255.8" cy="14.8" r="3.9"/><circle cx="267.2" cy="14.8" r="3.9"/><circle cx="278.6" cy="14.8" r="3.9"/><circle cx="289.9" cy="14.8" r="3.9"/></g>
+</svg>
+        </div>
+        <figcaption>Trained and taught in India, Australia, Canada and the UAE</figcaption>
+      </figure>
+
+        <div class="trio">
+          <figure class="frame reveal">
+            <div class="frame-media"><img src="images/half-moon.jpg" alt="Shipra in half moon pose" loading="lazy" decoding="async"></div>
+          </figure>
+          <figure class="frame reveal">
+            <div class="frame-media"><img src="images/crow.jpg" alt="Shipra in crow pose" loading="lazy" decoding="async"></div>
+          </figure>
+          <figure class="frame reveal">
+            <div class="frame-media"><img src="images/side-lunge.jpg" alt="Shipra in a low side lunge with one arm raised" loading="lazy" decoding="async"></div>
+          </figure>
+        </div>
+      </div>
+
+      <dl class="creds creds--stack" data-stagger>
+        <div class="cred reveal"><dt>1,800+</dt><dd>Hours of formal training</dd></div>
+        <div class="cred reveal"><dt>100+</dt><dd>Students taught</dd></div>
+        <div class="cred reveal"><dt>6</dt><dd>Practices taught</dd></div>
+        <div class="cred reveal"><dt>4</dt><dd>Countries taught in</dd></div>
+      </dl>
+    </div>
+
+    <div class="about-grid" style="margin-top:clamp(34px,4.5vw,62px);">
+      <p class="first reveal">
+        Six practices, four countries, and a class built around the person in
+        front of me.
+      </p>
+
+      <div class="about-body" data-stagger>
+        <p class="reveal">
+          I trained in India and have taught in Australia and Canada since:
+          corporate groups, community classes, beginners who had never been on a
+          mat, and students working around an injury. I'm now in Dubai, teaching
+          privately, in hotels and in offices across the city.
+        </p>
+        <p class="reveal">
+          Most weeks are a mix. A strong morning flow for one group, something
+          slower and more supported for someone managing chronic pain or stress.
+          I would rather adjust the class than ask you to adjust to it.
+        </p>
+      </div>
+    </div>
+
+    <div style="margin-top:clamp(36px,5vw,64px);">
+      <figure class="frame reveal">
+        <div class="frame-media">
+          <img src="images/splits.jpg" alt="Shipra in a full seated straddle, forearms resting on the mat" decoding="async">
+        </div>
+        <figcaption>Upavistha Konasana, seated wide-angle fold</figcaption>
+      </figure>
+    </div>
+
+
+
+
+  </div>
+</section>
+
+<!-- ============================ PRACTICE ============================ -->
+<section class="band band-tint" id="practice">
+  <div class="wrap">
+    <p class="eyebrow reveal">What I teach</p>
+
+    <div class="figrow" style="margin-bottom:clamp(48px,7vw,88px);">
+      <figure class="frame reveal">
+        <div class="frame-media">
+          <img src="images/pigeon.jpg" alt="Shipra in a half pigeon pose" loading="lazy" decoding="async">
+        </div>
+        <figcaption>Half pigeon, opening the front of the hip</figcaption>
+      </figure>
+      <div data-stagger>
+        <p class="lede reveal">
+          Six practices, and I move between them depending on who is in the room.
+        </p>
+        <p class="reveal">
+          New to yoga? Start with Hatha or Vinyasa. Coming back from an injury,
+          or managing something ongoing? Start with a conversation instead.
+        </p>
+      </div>
+    </div>
+
+    <div class="practice" data-stagger>
+      <div class="practice-row reveal">
+        <h3>Hatha</h3>
+        <p>Held postures, steady breath. The most adaptable of the four, and the
+           best place to start.</p>
+      </div>
+      <div class="practice-row reveal">
+        <h3>Ashtanga</h3>
+        <p>Fast-paced and structured. A set sequence of poses linked to
+           synchronised breathing, practised the same way each time.</p>
+      </div>
+      <div class="practice-row reveal">
+        <h3>Vinyasa</h3>
+        <p>Movement linked to breath, sequenced fresh each class. Best for groups
+           with mixed experience.</p>
+      </div>
+      <div class="practice-row reveal">
+        <h3>Pranayama</h3>
+        <p>Breath work, taught on its own or woven into a class. The quickest
+           route into the nervous system, and the part most people skip.</p>
+      </div>
+      <div class="practice-row reveal">
+        <h3>Meditation</h3>
+        <p>Short, guided and practical. Built to survive a working week rather
+           than a retreat.</p>
+      </div>
+      <div class="practice-row reveal">
+        <h3>Yoga therapy</h3>
+        <p>One-to-one work for a specific condition or injury, built over a series
+           of sessions. More below.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================ THERAPY ============================ -->
+<section class="band band-dark" id="therapy">
+  <div class="wrap">
+    <div class="therapy-grid">
+      <div data-stagger>
+        <p class="eyebrow reveal">Yoga therapy</p>
+        <h2 class="display reveal">Yoga for chronic pain and stress</h2>
+        <figure class="frame frame--dark reveal" style="margin-top:clamp(28px,4vw,44px);">
+        <div class="frame-media">
+          <img src="images/twist.jpg" alt="Shipra in a seated spinal twist" loading="lazy" decoding="async">
+        </div>
+        <figcaption>Seated twist through the side body</figcaption>
+      </figure>
+      </div>
+
+      <div data-stagger>
+        <p class="lede reveal">
+          It starts with a conversation, not a sequence. What's going on, what
+          your medical team has told you, and what you want to be able to do
+          again. Then I build a practice you can hold onto, and adjust it as
+          things change.
+        </p>
+        <ul class="therapy-list reveal">
+          <li>Chronic pain, worked at a pace that doesn't set you back</li>
+          <li>Stress and sleep, through breath work and slower sequencing</li>
+          <li>Fatigue, where the aim is energy management, not exertion</li>
+          <li>Mobility and posture, often alongside physiotherapy</li>
+          <li>Nutrition advice, built around how you eat rather than a diet plan</li>
+          <li>A short home practice you'll actually keep up</li>
+        </ul>
+        <p class="therapy-note reveal">
+          Yoga therapy supports medical care. It doesn't replace it. I work
+          alongside your doctor or physiotherapist, never instead of them.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ SESSIONS ============================ -->
+<section class="band" id="sessions">
+  <div class="wrap">
+    <p class="eyebrow reveal">Ways to practise</p>
+
+    <div class="figrow figrow--flip" style="margin-bottom:clamp(40px,6vw,72px);">
+      <figure class="frame reveal">
+        <div class="frame-media">
+          <img src="images/group-tree.jpg" alt="A mixed group in tree pose during a class led by Shipra" loading="lazy" decoding="async">
+        </div>
+        <figcaption>Tree pose, a private group session</figcaption>
+      </figure>
+      <div data-stagger>
+        <h2 class="display sessions-head reveal">Where I teach</h2>
+        <p class="lede reveal" style="margin-top:1.2em;">
+          My space in JBR for one-to-one work, and hotels, offices and studios
+          for groups. Mixed ability is the normal case, and I sequence so
+          everyone has something to work on.
+        </p>
+      </div>
+    </div>
+
+    <div class="sessions" data-stagger>
+      <article class="session reveal">
+        <h3>Private sessions</h3>
+        <p>One-to-one or a pair, at my home studio in JBR. For working towards
+           something specific, or for not learning in a crowd.</p>
+        <p class="detail">At my studio in JBR</p>
+      </article>
+
+      <article class="session reveal">
+        <h3>Hotels &amp; resorts</h3>
+        <p>Guest classes on the terrace, by the pool or in the wellness suite.
+           Mixed ability and mixed language, sequenced for exactly that.</p>
+        <p class="detail">Single classes or a regular slot</p>
+      </article>
+
+      <article class="session reveal">
+        <h3>Corporate &amp; groups</h3>
+        <p>In the office, scaled so people can take part in work clothes. Desk
+           tension, breath work, short resets a team will repeat.</p>
+        <p class="detail">Weekly, monthly or one-off wellness days</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ QUOTE ============================ -->
+<section class="band band-tint">
+  <div class="wrap quote-grid" data-stagger>
+    <figure class="frame reveal">
+        <div class="frame-media">
+          <img src="images/community-class.jpg" alt="A community class taught by Shipra" loading="lazy" decoding="async">
+        </div>
+        <figcaption>A community class, mixed ability and experience</figcaption>
+      </figure>
+    <div class="quote reveal">
+      <blockquote>Her patience and ability to explain each posture and its benefits are remarkable.</blockquote>
+      <p class="quote-rest">I've had the pleasure of taking Shipra's classes for three years now.
+        She's always attentive and adapts her classes to suit everyone's needs.
+        I highly recommend her classes.</p>
+      <cite>Leïla</cite>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ CONTACT ============================ -->
+<section class="band" id="contact">
+  <div class="wrap contact-grid">
+    <div data-stagger>
+      <h2 class="display reveal">Book a session</h2>
+      <p class="lede contact-lede reveal">
+        Tell me a little about what you're after and I'll come back to you within
+        a day.
+      </p>
+
+      <div class="direct reveal">
+        <a href="mailto:32shipra@gmail.com"><span>Email</span>32shipra@gmail.com</a>
+        <a href="https://wa.me/971585796061"><span>WhatsApp</span>+971 58 579 6061</a>
+      </div>
+    </div>
+
+    <form class="reveal" id="enquiry" novalidate>
+      <div class="field">
+        <label for="name">Name</label>
+        <input id="name" name="name" type="text" autocomplete="name" required>
+      </div>
+      <div class="field">
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" autocomplete="email" required>
+      </div>
+      <div class="field">
+        <label for="kind">What you're looking for</label>
+        <select id="kind" name="kind">
+          <option>Private session</option>
+          <option>Yoga therapy</option>
+          <option>Hotel or resort classes</option>
+          <option>Corporate or group</option>
+          <option>Something else</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="msg">Anything I should know</label>
+        <textarea id="msg" name="msg" rows="4"></textarea>
+      </div>
+      <button class="submit" type="submit">Send enquiry</button>
+      <p class="form-note" id="note" role="status"></p>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer class="wrap site-footer">
+  <span>Bloom Yoga | Shipra | Dubai</span>
+  <nav class="social" aria-label="Social">
+    <a href="https://wa.me/971585796061">WhatsApp</a>
+    <a href="mailto:32shipra@gmail.com">Email</a>
+  </nav>
+</footer>
+</div><!-- /#smooth-content -->
+
+<script>
+(function(){
+  "use strict";
+
+  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var finePointer = window.matchMedia("(pointer: fine)").matches;
+
+  var header  = document.getElementById("header");
+  var content = document.getElementById("smooth-content");
+  var blooms  = Array.prototype.slice.call(document.querySelectorAll(".bloom"));
+  var floaters= Array.prototype.slice.call(document.querySelectorAll("[data-parallax]"));
+
+  /* ---------------------------------------------------------
+     Stagger delays: each revealing child inside a [data-stagger]
+     group waits a beat longer than the one before it.
+     --------------------------------------------------------- */
+  Array.prototype.forEach.call(document.querySelectorAll("[data-stagger]"), function(group){
+    Array.prototype.forEach.call(group.querySelectorAll(".reveal"), function(el, i){
+      el.style.setProperty("--d", (i * 90) + "ms");
+    });
+  });
+
+  /* ---------------------------------------------------------
+     Reveal on scroll
+     --------------------------------------------------------- */
+  var pending = Array.prototype.slice.call(document.querySelectorAll(".reveal"));
+  if (reduced){
+    pending.forEach(function(el){ el.classList.add("is-in"); });
+    pending = [];
+  }
+  /* checked every frame rather than by observer: an element that is on screen
+     is always revealed, whatever the scroll technique is doing to the layout */
+  function checkReveals(){
+    if (!pending.length) return;
+    var limit = window.innerHeight * 0.92;
+    for (var i = pending.length - 1; i >= 0; i--){
+      if (pending[i].getBoundingClientRect().top < limit){
+        pending[i].classList.add("is-in");
+        pending.splice(i,1);
+      }
+    }
+  }
+
+  /* ---------------------------------------------------------
+     Inertial scroll. The page is translated under a fixed frame
+     and eased toward the real scroll position, so momentum
+     carries between sections instead of stopping dead.
+     Desktop pointers only; touch keeps native scrolling.
+     --------------------------------------------------------- */
+  var smooth = finePointer && !reduced;
+  var target = 0, current = 0;
+
+  function setBodyHeight(){
+    if (!smooth) return;
+    document.body.style.height = content.getBoundingClientRect().height + "px";
+  }
+
+  if (smooth){
+    document.body.classList.add("is-smooth");
+    setBodyHeight();
+    window.addEventListener("resize", setBodyHeight);
+    if ("ResizeObserver" in window){
+      new ResizeObserver(setBodyHeight).observe(content);
+    }
+    window.addEventListener("load", setBodyHeight);
+  } else {
+    document.documentElement.style.scrollBehavior = "smooth";
+  }
+
+  /* Cursor drift for the blooms */
+  var mx = 0, my = 0, cx = 0, cy = 0;
+  if (finePointer && !reduced){
+    window.addEventListener("mousemove", function(e){
+      mx = (e.clientX / window.innerWidth  - .5) * 2;
+      my = (e.clientY / window.innerHeight - .5) * 2;
+    }, {passive:true});
+  }
+
+  function frame(){
+    target = window.scrollY || window.pageYOffset;
+
+    if (smooth){
+      current += (target - current) * .085;
+      if (Math.abs(target - current) < .05) current = target;
+      content.style.transform = "translate3d(0," + (-current) + "px,0)";
+    } else {
+      current = target;
+    }
+
+    header.classList.toggle("is-stuck", current > 40);
+    checkReveals();
+
+    /* blooms: scroll drift + eased cursor drift */
+    cx += (mx - cx) * .045;
+    cy += (my - cy) * .045;
+    blooms.forEach(function(b){
+      var depth = parseFloat(b.dataset.depth) || 0;
+      var rate  = parseFloat(b.dataset.scroll) || 0;
+      b.style.transform =
+        "translate3d(" + (cx * depth) + "px," +
+        (cy * depth * .7 + current * rate) + "px,0)";
+    });
+
+    /* slow drift on the portrait so the column doesn't move as one slab */
+    if (!reduced){
+      floaters.forEach(function(el){
+        var rect = el.getBoundingClientRect();
+        var mid  = rect.top + rect.height / 2 - window.innerHeight / 2;
+        var amt  = parseFloat(el.dataset.parallax) || 0;
+        el.style.transform = "translate3d(0," + (-mid * amt) + "px,0)";
+      });
+    }
+
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+
+  /* Anchor links */
+  document.addEventListener("click", function(e){
+    var link = e.target.closest('a[href^="#"]');
+    if (!link) return;
+    var id = link.getAttribute("href");
+    if (id === "#") return;
+    var el = document.querySelector(id);
+    if (!el) return;
+    e.preventDefault();
+    setMenu(false);
+    var top = el.getBoundingClientRect().top + (smooth ? current : window.scrollY);
+    window.scrollTo({top: top, behavior: smooth || reduced ? "auto" : "smooth"});
+  });
+
+  /* Mobile menu */
+  var burger = document.getElementById("burger");
+  var nav = document.getElementById("nav");
+  function setMenu(open){
+    burger.setAttribute("aria-expanded", String(open));
+    nav.classList.toggle("is-open", open);
+  }
+  burger.addEventListener("click", function(){
+    setMenu(burger.getAttribute("aria-expanded") !== "true");
+  });
+  document.addEventListener("keydown", function(e){
+    if (e.key === "Escape") setMenu(false);
+  });
+
+  /* ---------------------------------------------------------
+     Enquiry form. No backend yet — this opens the visitor's mail
+     app with the message ready. To collect submissions properly,
+     sign up for Formspree (or similar) and change the form to:
+        <form action="https://formspree.io/f/YOUR_ID" method="POST">
+     then delete this handler.
+     --------------------------------------------------------- */
+  var form = document.getElementById("enquiry");
+  var note = document.getElementById("note");
+  var TO = "32shipra@gmail.com";
+
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+    var name = form.name.value.trim();
+    var email = form.email.value.trim();
+    if (!name || !email){
+      note.textContent = "Add your name and email so I can reply.";
+      return;
+    }
+    var body = "Name: " + name + "\n" +
+               "Email: " + email + "\n" +
+               "Looking for: " + form.kind.value + "\n\n" +
+               form.msg.value.trim();
+    window.location.href = "mailto:" + TO +
+      "?subject=" + encodeURIComponent("Bloom Yoga enquiry from " + name) +
+      "&body=" + encodeURIComponent(body);
+    note.textContent = "Opening your email app.";
+  });
+})();
+</script>
+</body>
+</html>
